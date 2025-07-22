@@ -4,7 +4,7 @@ public abstract class Produto {
     private String codigo; 
     private String nome;
     private double precoBase; 
-    public Produto(String codigo, String nome, double precoBase) {
+    public Produto(String codigo, String nome, BigDecimal precoBase) {
         this.codigo = codigo;
         this.nome = nome;
         this.precoBase = precoBase;
