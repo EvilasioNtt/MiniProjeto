@@ -37,3 +37,12 @@ public class Produto {
     public BigDecimal getPrecoVenda() {
         return precoBase;
     }
+  public String getTipo() {
+        return "GENÉRICO";
+    }
+
+    @Override
+    public String toString() {
+        return getTipo() + "[" + codigo + "] " + nome + " R$" + precoBase.toString();
+    }
+}
