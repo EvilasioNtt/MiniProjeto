@@ -1,7 +1,7 @@
 package loja.model.produto;
 import java.math.BigDecimal;
 
-public abstract class Produto {
+public class Produto {
     private String codigo; 
     private String nome;
     private double precoBase; 
