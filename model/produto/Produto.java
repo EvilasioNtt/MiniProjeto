@@ -1,14 +1,18 @@
 package loja.model.produto;
+
 import java.math.BigDecimal;
 
-public class Produto {
-    private String codigo; 
+public abstract class Produto {
+    private String codigo;
     private String nome;
-    private double precoBase; 
-    public Produto(String codigo, String nome, BigDecimal precoBase) {
+    private BigDecimal preco;
+    private int estoque;
+
+    public Produto(String codigo, String nome, BigDecimal preco, int estoque) {
         this.codigo = codigo;
         this.nome = nome;
-        this.precoBase = precoBase != null ? precoBase : BigDecimal.ZERO;
+        this.preco = preco;
+        this.estoque = estoque;
     }
 
     public String getCodigo() {
@@ -19,30 +23,25 @@ public class Produto {
         return nome;
     }
 
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public int getEstoque() {
+        return estoque;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public BigDecimal getPrecoBase() {
-        return precoBase;
-    }
-   public void setPrecoBase(BigDecimal precoBase) {
-        if (precoBase == null || precoBase.compareTo(BigDecimal.ZERO) < 0) {
-            this.precoBase = BigDecimal.ZERO;
-        } else {
-            this.precoBase = precoBase;
-        }
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
     }
 
-    public BigDecimal getPrecoVenda() {
-        return precoBase;
-    }
-  public String getTipo() {
-        return "GENÉRICO";
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
     }
 
-    @Override
-    public String toString() {
-        return getTipo() + "[" + codigo + "] " + nome + " R$" + precoBase.toString();
-    }
+    public abstract String getTipo();
 }
