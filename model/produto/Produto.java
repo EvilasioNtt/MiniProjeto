@@ -26,10 +26,13 @@ public abstract class Produto {
     public BigDecimal getPrecoBase() {
         return precoBase;
     }
-
     public void setPrecoBase(BigDecimal precoBase) {
-        if (precoBase < 0) {
-            precoBase = 0.0;
+        if (precoBase == null || precoBase.compareTo(BigDecimal.ZERO) < 0) {
+            this.precoBase = BigDecimal.ZERO;
+        } else {
+            this.precoBase = precoBase;
+        }
+    }
         }
         this.precoBase = precoBase;
     }
