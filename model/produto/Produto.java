@@ -26,15 +26,12 @@ public class Produto {
     public BigDecimal getPrecoBase() {
         return precoBase;
     }
-    public void setPrecoBase(BigDecimal precoBase) {
+   public void setPrecoBase(BigDecimal precoBase) {
         if (precoBase == null || precoBase.compareTo(BigDecimal.ZERO) < 0) {
             this.precoBase = BigDecimal.ZERO;
         } else {
             this.precoBase = precoBase;
         }
-    }
-        }
-        this.precoBase = precoBase;
     }
 
     public BigDecimal getPrecoVenda() {
