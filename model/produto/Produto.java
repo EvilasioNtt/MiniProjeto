@@ -8,7 +8,7 @@ public class Produto {
     public Produto(String codigo, String nome, BigDecimal precoBase) {
         this.codigo = codigo;
         this.nome = nome;
-        this.precoBase = precoBase;
+        this.precoBase = precoBase != null ? precoBase : BigDecimal.ZERO;
     }
 
     public String getCodigo() {
