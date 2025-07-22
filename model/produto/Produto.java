@@ -1,4 +1,5 @@
 package loja.model.produto;
+import java.math.BigDecimal;
 
 public abstract class Produto {
     private String codigo; 
@@ -22,17 +23,17 @@ public abstract class Produto {
         this.nome = nome;
     }
 
-    public double getPrecoBase() {
+    public BigDecimal getPrecoBase() {
         return precoBase;
     }
 
-    public void setPrecoBase(double precoBase) {
+    public void setPrecoBase(BigDecimal precoBase) {
         if (precoBase < 0) {
             precoBase = 0.0;
         }
         this.precoBase = precoBase;
     }
 
-    public double getPrecoVenda() {
+    public BigDecimal getPrecoVenda() {
         return precoBase;
     }
