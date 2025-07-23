@@ -7,7 +7,6 @@ import loja.ui.ConsoleMenu;
 import loja.ui.Funcoes;
 
 import java.util.Scanner;
-import java.io.Console;
 
 public class Main {
     public static void main(String[] args) {
