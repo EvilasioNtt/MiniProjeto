@@ -13,7 +13,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
          Produto[] produtos = new Produto[100];
          int totalProdutos=0;
-         Cliente[] clientes = new Cliente[100];
+         ICliente[] clientes = new ICliente[100];
          int totalClientes=0;
          Nota[] notas = new Nota[100];
          int totalNotas=0;
