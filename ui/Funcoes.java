@@ -50,7 +50,7 @@ public class Funcoes{
                 System.out.print("Novo estoque: ");
                 produtos[i].setEstoque(Integer.parseInt(sc.nextLine()));
 
-              if (produtos[i] istanceof ProdutoFisico){
+              if (produtos[i] instanceof ProdutoFisico){
                 ProdutoFisico fisico = (ProdutoFisico) produtos[i];
                 System.out.println ("(Downcast aplicado com sucesso: Produto é fisico)");
               }
