@@ -29,6 +29,7 @@ public class Funcoes{
         };
 
         if (p != null && totalProdutos < produtos.length) {
+            Produto produtoUpcast= (Produto) p;
             produtos[totalProdutos++] = p;
             System.out.println("Produto cadastrado com sucesso.");
         }
@@ -48,6 +49,11 @@ public class Funcoes{
                 produtos[i].setPreco(new BigDecimal(sc.nextLine()));
                 System.out.print("Novo estoque: ");
                 produtos[i].setEstoque(Integer.parseInt(sc.nextLine()));
+
+              if (produtos[i] istanceof ProdutoFisico){
+                ProdutoFisico fisico = (ProdutoFisico) produtos[i];
+                System.out.println ("(Downcast aplicado com sucesso: Produto é fisico)");
+              }
                 System.out.println("Produto alterado com sucesso.");
                 return;
             }
