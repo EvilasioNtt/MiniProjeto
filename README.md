@@ -144,6 +144,13 @@ loja/
 │   └── Funcoes.java      # Contém as funções de cadastro, alteração e listagens
 ```
 
+### Uso de Interfaces e Polimorfismo
+O projeto utiliza da interface denominada ICliente para:
+Definir o contrato String getTipo().
+A classe abstrata Cliente implementa ICliente, e suas subclasses, PessoaFisica e PessoaJuridica, fornecem a implementação concreta para o método getTipo().
+Isso permite que arrays e métodos que esperam um ICliente possam manipular tanto objetos PessoaFisica quanto PessoaJuridica de forma uniforme.
+O motivo para utilização da interface ICliente no lugar da classe cliente é garantir o polimorfismo, tornar os tipos mais genéricos e tornar o código mais fácil de estender.
+
 ### O que mudou?
 
 #### `Main.java` antes:
