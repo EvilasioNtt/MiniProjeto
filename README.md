@@ -1,6 +1,6 @@
 # Integrantes 
-Evilásio Cavalcante de Melo Neto
-Júlio César Pereira Nascimento
+Evilásio Cavalcante de Melo Neto,
+Júlio César Pereira Nascimento,
 Lucas da Silva Rodrigues
 
 
