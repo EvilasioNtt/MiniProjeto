@@ -238,7 +238,7 @@ public class Funcoes{
     for (int i = 0; i < totalClientes; i++) {
         if (clientes[i] instanceof Cliente) {
             Cliente c = (Cliente) clientes[i];
-            System.out.println("[" + c.getId() + "] " + c.getNome() + " | " + c.getTipo() + " | " + c.getTelefone());
+            System.out.println("[" + c.getId() + "] " + c.getNome() + " | " + c.getTipo() + " | " + c.getTelefone() + " | " +c.getEndereco());
         } else {
             System.out.println("Tipo de cliente desconhecido: " + clientes[i].getTipo());
         }
