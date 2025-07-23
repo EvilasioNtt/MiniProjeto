@@ -1,3 +1,9 @@
+# Integrantes 
+Evilásio Cavalcante de Melo Neto
+Júlio César Pereira Nascimento
+Lucas da Silva Rodrigues
+
+
 # Sistema de Loja - Projeto Java Orientado a Objetos
 
 Este projeto implementa um sistema de loja com funcionalidades de cadastro de produtos e clientes, emissão de notas fiscais de compra e controle de estoque. O sistema foi desenvolvido em Java utilizando os pilares da Programação Orientada a Objetos: encapsulamento, herança, polimorfismo e associação de classes.
