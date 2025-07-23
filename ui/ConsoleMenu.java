@@ -9,7 +9,7 @@ import java.util.Scanner;
 import java.math.BigDecimal;
 public class ConsoleMenu{
 
-public static void exibirMenu(Scanner sc, Produto [] produtos, Cliente[] clientes, Nota[] notas, int totalProdutos, int totalClientes, int totalNotas){
+public static void exibirMenu(Scanner sc, Produto [] produtos, ICliente[] clientes, Nota[] notas, int totalProdutos, int totalClientes, int totalNotas){
         int opcao;
 
         do {
