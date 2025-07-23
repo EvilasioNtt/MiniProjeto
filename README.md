@@ -131,9 +131,9 @@ O projeto foi projetado com superclasses abstratas que representam os conceitos 
 
 Esse uso de tipos abstratos permite aplicar polimorfismo, onde manipulamos produtos e clientes por suas interfaces comuns, mas preservamos o comportamento específico nas subclasses.
 
-Seguindo uma sugestão do professor, o projeto foi refatorado para separar a interface do usuário da lógica de negócio. Isso melhora a organização do código e facilita futuras manutenções.
-
 ### Nova Estrutura
+
+Seguindo uma sugestão do professor, o projeto foi refatorado para separar a interface do usuário da lógica de negócio. Isso melhora a organização do código e facilita futuras manutenções.
 
 Uma nova pasta foi criada:
 
