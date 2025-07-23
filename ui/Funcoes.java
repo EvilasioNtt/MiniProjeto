@@ -61,7 +61,38 @@ public class Funcoes{
         System.out.println("Produto não encontrado.");
     }
 
-    public static int cadastrarCliente(Scanner sc,Cliente[] clientes, int totalClientes) {
+
+
+   public static int cadastrarCliente(Scanner sc,ICliente[] clientes, int totalClientes) {
+        System.out.println("Tipo (1-Física, 2-Jurídica): ");
+        int tipo = Integer.parseInt(sc.nextLine());
+        String id;
+        if (tipo==1){
+            System.out.print("CPF:");
+            id= sc.nextLine();
+        } else{
+            System.out.print("CNPJ:");
+            id=sc.nextLine();
+        }
+        System.out.print("Nome: ");
+        String nome = sc.nextLine();
+        System.out.print("Endereço: ");
+        String endereco = sc.nextLine();
+        System.out.print("Telefone: ");
+        String telefone = sc.nextLine();
+
+        ICliente c = (tipo == 1) ? new PessoaFisica(id, nome, endereco, telefone)
+                                : new PessoaJuridica(id, nome, endereco, telefone);
+
+        if (totalClientes < clientes.length) {
+            clientes[totalClientes++] = c;
+            System.out.println("Cliente cadastrado com sucesso.");
+        }
+        return totalClientes;
+    }
+
+
+    /*public static int cadastrarCliente(Scanner sc,Cliente[] clientes, int totalClientes) {
         System.out.print("ID do cliente: ");
         String id = sc.nextLine();
         System.out.println("Tipo (1-Física, 2-Jurídica): ");
@@ -81,9 +112,34 @@ public class Funcoes{
             System.out.println("Cliente cadastrado com sucesso.");
         }
         return totalClientes;
-    }
+    }*/
 
-    public static void alterarCliente(Scanner sc,Cliente[] clientes, int totalClientes) {
+
+
+  public static void alterarCliente(Scanner sc, ICliente[] clientes, int totalClientes) {
+    listarClientes(clientes, totalClientes);
+    System.out.print("ID(CPF ou CNPJ) do cliente a alterar: ");
+    String id = sc.nextLine();
+
+    for (int i = 0; i < totalClientes; i++) {
+        if (clientes[i] instanceof Cliente) {
+            Cliente c = (Cliente) clientes[i];
+            if (c.getId().equals(id)) {
+                System.out.print("Novo nome: ");
+                c.setNome(sc.nextLine());
+                System.out.print("Novo endereço: ");
+                c.setEndereco(sc.nextLine());
+                System.out.print("Novo telefone: ");
+                c.setTelefone(sc.nextLine());
+                System.out.println("Cliente alterado com sucesso.");
+                return;
+            }
+        }
+    }
+    System.out.println("Cliente não encontrado.");
+}
+
+    /*public static void alterarCliente(Scanner sc,Cliente[] clientes, int totalClientes) {
         listarClientes(clientes, totalClientes);
         System.out.print("ID do cliente a alterar: ");
         String id = sc.nextLine();
@@ -101,19 +157,22 @@ public class Funcoes{
             }
         }
         System.out.println("Cliente não encontrado.");
-    }
+    }*/
 
-    public static int criarNota(Scanner sc,Nota[] notas, int totalNotas,Cliente[]clientes,int totalClientes,Produto[] produtos,int totalProdutos) {
+    public static int criarNota(Scanner sc,Nota[] notas, int totalNotas,ICliente[]clientes,int totalClientes,Produto[] produtos,int totalProdutos) {
         listarClientes(clientes,totalClientes);
-        System.out.print("ID do cliente: ");
+        System.out.print("ID(CPF ou CNPJ) do cliente: ");
         String id = sc.nextLine();
 
-        Cliente cliente = null;
+        ICliente cliente = null;
         for (int i = 0; i < totalClientes; i++) {
-            if (clientes[i].getId().equals(id)) {
+          if (clientes[i] instanceof Cliente){
+                Cliente c = (Cliente) clientes[i];
+            if (c.getId().equals(id)) {
                 cliente = clientes[i];
                 break;
             }
+          }
         }
 
         if (cliente == null) {
@@ -121,7 +180,7 @@ public class Funcoes{
             return totalNotas;
         }
 
-        Nota nota = new Nota(cliente);
+        Nota nota = new Nota((Cliente)cliente);
 
         while (true) {
             listarProdutos(produtos,totalProdutos);
@@ -174,10 +233,22 @@ public class Funcoes{
         }
     }
 
-    public static void listarClientes(Cliente[] clientes, int totalClientes) {
+
+  public static void listarClientes(ICliente[] clientes, int totalClientes) {
+    for (int i = 0; i < totalClientes; i++) {
+        if (clientes[i] instanceof Cliente) {
+            Cliente c = (Cliente) clientes[i];
+            System.out.println("[" + c.getId() + "] " + c.getNome() + " | " + c.getTipo() + " | " + c.getTelefone());
+        } else {
+            System.out.println("Tipo de cliente desconhecido: " + clientes[i].getTipo());
+        }
+     }
+    }
+}
+   /* public static void listarClientes(Cliente[] clientes, int totalClientes) {
         for (int i = 0; i < totalClientes; i++) {
             Cliente c = clientes[i];
             System.out.println("[" + c.getId() + "] " + c.getNome() + " | " + c.getTipo() + " | " + c.getTelefone());
         }
     }
-}
+}*/
